@@ -17,7 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private ApplicationUserDetailService neokredUserDetailsService;
+    private ApplicationUserDetailsService neokredUserDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -28,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http
-                .authorizeRequests().antMatchers("/neokred/admin").permitAll()
-                .and().authorizeRequests().antMatchers("/ppi/v1/jit/**").permitAll()
+                .authorizeRequests().antMatchers("/user/v1/register").permitAll()
+                .and().authorizeRequests().antMatchers("/user/v1/login").permitAll()
                 .and().authorizeRequests().antMatchers("/ppi/v1/customer/**").permitAll()
                 .and().authorizeRequests().antMatchers("/neokred/admin/corporate/**").authenticated().and().httpBasic()
                 .and().authorizeRequests().antMatchers("/corporate/admin/**").authenticated().and().httpBasic()

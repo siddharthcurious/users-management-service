@@ -1,11 +1,11 @@
 package com.numeratorx.usersmanagement.models;
 
+import com.numeratorx.usersmanagement.constants.Gender;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-
 
 @Getter
 @Setter
@@ -21,6 +21,8 @@ public class User extends DateAudit {
     private String username;
     private String emailId;
     private long mobileNumber;
+    private Gender gender;
+    private String dateOfBirth;
     private String password;
     private String roles;
     private boolean isActive;

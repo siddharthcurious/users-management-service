@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ApplicationUserDetail implements UserDetails {
+public class ApplicationUserDetails implements UserDetails {
 
     private final String username;
     private final String password;
@@ -20,7 +20,7 @@ public class ApplicationUserDetail implements UserDetails {
     private final boolean isActive;
     private final List<GrantedAuthority> authorities;
 
-    public ApplicationUserDetail(User user) {
+    public ApplicationUserDetails(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.isAccountNonExpired = user.isAccountNonExpired();
